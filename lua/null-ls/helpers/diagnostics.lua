@@ -99,12 +99,10 @@ local from_pattern = function(pattern, groups, overrides)
 
     return function(line, params)
         local results = { line:match(pattern) }
-        log:error(pattern)
-        log:error(line)
-        log:error(line:match(pattern))
         local entries = {}
 
         for i, match in ipairs(results) do
+            log:error(groups[i].." "..match)
             entries[groups[i]] = match
         end
 
