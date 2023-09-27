@@ -99,14 +99,14 @@ local from_pattern = function(pattern, groups, overrides)
 
     return function(line, params)
         local results = { line:match(pattern) }
-        log.error(results)
+        log:error(results)
         local entries = {}
 
         for i, match in ipairs(results) do
             entries[groups[i]] = match
         end
-        log.error(entries)
-        log.error(attr_adapters)
+        log:error(entries)
+        log:error(attr_adapters)
 
         return make_diagnostic(entries, defaults, attr_adapters, params, offsets)
     end
