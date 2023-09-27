@@ -99,6 +99,8 @@ local from_pattern = function(pattern, groups, overrides)
 
     return function(line, params)
         local results = { line:match(pattern) }
+        log:error(pattern)
+        log:error(line)
         log:error(line:match(pattern))
         local entries = {}
 
